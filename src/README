@@ -1,0 +1,14 @@
+This is the Assembly environment. The structure is as follows:
+
+al_environment/
+├── .devcontainer/
+│   ├── devcontainer.json
+│   └── Dockerfile
+├── .vscode/
+│   ├── tasks.json
+│   └── launch.json
+├── src/
+│   ├── hello.asm
+│   └── helloWorld.asm
+├── Makefile
+└── README.md
