@@ -1,0 +1,60 @@
+  1 |     10 | Build your own PC     | Physically build your own computer from parts. Makes sure it boots and runs successfully!
+  2 |      3 | B rated movies        | Watch and enjoy B rated movies.
+  3 |      8 | MMORPG                | Play or have played an MMORPG for longer than a year.
+  4 |      3 | Use Command Line      | Use the Command Prompt for varying uses, whether to simply edit a file, program, or any other practical use.
+  5 |      5 | Use Linux             | Use Linux, Can be primary OS, or can be dual booted/use a virtual box.
+  6 |      4 | NANO/VI               | Use NANO or VI as your primary way to edit files.
+  7 |      3 | Read Comics           | Read comics on a regular basis.
+  8 |      5 | Anime/Manga           | Either watch Anime or read Manga on a regular basis.
+  9 |      8 | Version Control       | Use version control software, such as Mercurial or Git, and everything (hopefully) works.
+ 10 |      3 | Book > Movie          | Watch a movie, comment on how the Book is obviously better.
+ 11 |      6 | Lore Nerd             | Get involved in a game/book's lore to the point you can hold a long conversation/debate based upon it.
+ 12 |      5 | Program for Fun       | Program even when you are not getting paid for it!
+ 13 |      5 | Game of Thrones       | Either read or watch Game of Thrones.
+ 14 |      3 | ASCII Art             | Create art consisting only of ascii characters.
+ 15 |      3 | Uses Reddit           | Visit Reddit on a regular basis. Spend a somewhat concerning amount of time on the site.
+ 16 |      3 | Stack Overflow        | Consult your betters on Stack Overflow for their aid.
+ 17 |      6 | Procrastination       | The ideal time to start the task is within 60 minutes of it being due.
+ 18 |      3 | SciFi Channel         | Watched the SciFi Channel, before it became SyFy.
+ 19 |      7 | Star Wars Marathon    | Marathon all of the Star Wars Movies within a weekend.
+ 20 |      7 | LOTR Marathon         | Marathon Lord of the Rings and/or The Hobbit Movies over the time period of a weekend.
+ 21 |      8 | Conventions!          | Attend a gaming or anime convention.
+ 22 |     10 | Cosplay               | Dress up a a character for a convention, could be from movies, games, anime, etc.
+ 23 |      4 | Game Duplicates       | Own multiple copies of the same game, either because of sales or multiple platforms.
+ 24 |      4 | Multi Monitor         | Have more than one monitor connected to your PC.
+ 25 |      5 | Part Hoarder          | Have a collection of various computer parts at your home.
+ 26 |      4 | MLG Fan               | Watch/Follow a Major League Gaming team.
+ 27 |      4 | 30 Mins/Day           | Practice Programming for at least 30 minutes a day.
+ 28 |      4 | New Tech              | Be Excited for new technology coming out.
+ 29 |      6 | Enjoy Mathematics     | Actually enjoy playing with the field of Mathematics.
+ 30 |      5 | Multi Computer        | Own more than one Computer.
+ 31 |      5 | Multi Gaming          | Have more than one gaming system, not counting computers.
+ 32 |     10 | Fund Circular Room    | Help fund the greatest room ever designed. It will exist!
+ 33 |      5 | Computer Gods         | Praise them for your successful attempts of writing programs, and hope they never doom you with endless errors.
+ 34 |      1 | Donate to Lobster     | .... Can't hurt, right? Might stop it from trying to pinch you anyways.
+ 35 |     10 | CompSci Overload      | Take 3+ Computer Science classes in one semester
+ 36 |      7 | Star Trek Marathon    | Watch atleast 5 Star Trek movies in the course of a weekend.
+ 37 |      5 | Watch X-files         | Watch the X-files television show.
+ 38 |      7 | Nerdcard Creator      | Create this website.
+ 39 |      8 | Midnight Release      | Stand in line for a game/movie being released at midnight.
+ 40 |      5 | Recursion Jokes       | ... in order to understand recursion, one must first understand recursion, in order to understand recursion , one must first understand recursion, ...
+ 41 |      3 | VSchart Amusement     | -Go to vschart.com, Scroll to the bottom of a serious comparison, Enjoy
+ 42 |      9 | Survived Assembly     | You survived, somehow making it where others have failed.
+ 43 |      5 | Video Game Music      | Listen to a video game OST outside of the game itself.
+ 44 |      4 | Bookstores            | Enjoying visiting bookstores, easily spending hours, and plenty of money, at one.
+ 45 |      6 | Comic Knowledge       | Know not only the comic, but the creators of the issue/run; the writers, artists, etc.
+ 46 |      4 | Steam Vigilant        | Steam is always open, you just don't ever seem to close it.
+ 47 |      3 | Group Chat            | Use Skype, Discord, or some other medium to chat between members of a group, whether productive or not.
+ 48 |      1 | Ostrich Algorithm     | You fully support everything the algorithm stands for!
+ 49 |      3 | Hello World!          | When you start a new language, you always start with hello world!
+ 50 |      5 | Disregard IE          | The only time you use Internet Explorer, is to download another browser.
+ 51 |      6 | Terminal from phone   | Use a terminal from your phone.
+ 52 |      5 | Harry Potter Marathon | Marathon the Harry Potter Movies
+ 53 |      3 | Sounds for the deaf   | If you don't know...
+ 54 |      7 | Raspberry Pi          | Use a Raspberry Pi
+ 55 |      4 | Devops                | Go to devops reactions on tumbler and enjoy
+ 56 |      7 | Take AI               | Take the AI class
+ 57 |      5 | Git commits           | Go to git commits from last night
+ 58 |      4 | Git Account           | Have a Git account
+ 59 |     10 | Sunbros               | Be a sunbro
+ 60 |      4 | Wear Glasses          | Wear Glasses

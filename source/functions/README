@@ -1,0 +1,47 @@
+funcdemo1.asm: basics of call and ret with no parameters
+funcdemo2.asm: simple function with 2 parameters and a return value compare
+	and contrast old way and new way.
+funcdemo3.asm: long calc(long a, long b, long c, long d, long e, long f, long g, long h)
+funcdemo4.asm: recursive nfact() (old way and new way)
+funcdemo5.asm: recursive function without tail recursion
+
+------------------------------------------------------------
+User Program Calling Conventions
+---------------------------------
+rdi -> param #1
+rsi -> param #2
+rdx -> param #3
+rcx -> param #4
+r8 -> param #5
+r9 -> param #6
+Parameters 7, 8, ... all are placed on the stack (reverse order so that
+		when they are popped off they will come off in order).
+
+rax, rdx  <- hold return value of function
+
+Floating point parameters go in xmm0, xmm1, xmm2, ...
+xmm0, xmm1 <- hold floating point return values
+
+
+
+------------------------------------------------------------
+Linux System Call Calling Conventions
+--------------------------------------
+rax -> system call number
+rdi -> param #1
+rsi -> param #2
+rdx -> param #3
+r10 -> param #4
+r8 -> param #5
+r9 -> param #6
+
+rax, rdx  <- hold return value of function
+
+Floating point parameters go in xmm0, xmm1, xmm2, ...
+xmm0, xmm1 <- hold floating point return values
+
+NOTE: variable-argument subroutines require a value in rax for
+   the number of vector registers used
+
+NOTE: registers rbp, rbx, r12-r15 will not be affected by system calls
+

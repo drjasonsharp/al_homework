@@ -1,0 +1,2 @@
+%include "../../iomacros.asm"
+%include "../../dumpregs.asm"

@@ -1,0 +1,16 @@
+Daffy Duck
+0 1 3 4 6 7
+Bugs Bunny
+0 1 3 4 7
+Wile E. Coyote
+0 1 3 4 7
+Tweety Bird
+0 1 3 4 7
+The Lobster
+0 1 3 4 6 7
+Sylvester
+0 1 2 3 4 5 7
+Porky Pig
+0 2 4 7
+Taz
+0 1 2 3 4 7
