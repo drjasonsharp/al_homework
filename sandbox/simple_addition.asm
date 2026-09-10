@@ -7,9 +7,12 @@
                 global main
                 section .data
 
+;msg1:   db      "Answer: ",0
+;prompt1: db     "Enter first integer: ",0
+;prompt2:db      "Enter second integer: ",0
 num1:   dd      25                  ;define doubleword 32-bit integer of value 25
 num2:   dd      17                  ;define doubleword 32-bit integer of value 17
-endl:   db      10,0                ;define byte to store newline
+endl:   db      10,0         ;define byte to store newline
 
                 section .bss
 result  resd    1                  ; enough for 32-bit integer text
@@ -23,6 +26,17 @@ main:
 
         put_i eax                     ; macro in iomacro - 32-bit integer
         put_str endl                    ; macro in iomacro 
+
+        ;put_str prompt1        
+        ;put_str endl
+        ;get_i   [eax]
+        ;put_str prompt2
+        ;get_i r9
+
+        ;add r8,r9
+
+        ;put_str msg1
+        ;put_i r8d
 
         ; exit(0)
         mov     eax, 60                 ; system call 60 is exit
