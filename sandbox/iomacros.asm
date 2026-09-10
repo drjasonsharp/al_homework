@@ -23,6 +23,7 @@
 
 __format_str:	db	"%s",0
 __format_int:	db	"%d",0
+__format_int64: db  "%11d",0
 __format_hex:	db	"%#010x",0
 __format_f:	db	"%f",0
 __format_dbl:	db	"%lf",0
@@ -1106,5 +1107,40 @@ extern fgets,fgetc,fopen,fclose,fscanf,fputc,fprintf
 	jz	%%aligned
 	sub	rsp, 8
 %%aligned:	
+%endmacro
+
+;; put_i64 num
+;;-----------
+;; Writes a signed 64-bit integer, num, to stdout.
+;;
+;; num must be: reg64, mem64, or imm64
+;;-----------------------------------------------------------
+%macro put_i64 1
+    push    rax
+    push    rcx
+    push    rdx
+    push    rdi
+    push    rsi
+    push    r8
+    push    r9
+    push    r10
+    push    r11
+    sub     rsp,8
+
+    mov     rsi,%1
+    mov     rdi,__format_int64
+    xor     eax,eax
+    call    printf
+
+    add     rsp,8
+    pop     r11
+    pop     r10
+    pop     r9
+    pop     r8
+    pop     rsi
+    pop     rdi
+    pop     rdx
+    pop     rcx
+    pop     rax
 %endmacro
 
