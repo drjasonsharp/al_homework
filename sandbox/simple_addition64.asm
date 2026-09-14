@@ -35,15 +35,15 @@ main:
         put_str prompt1        
         put_str endl
         ;mov r8,0
-        get_i r8d   ;[eax]
+        get_i64 r8   ;[eax]
         put_str prompt2
-        get_i r9d
+        get_i64 r9
 
-        add r8d,r9d
+        add r8,r9
 
         put_str msg1
         ;put_str endl
-        put_i r8d
+        put_i64 r8
         put_str endl
 
         ; added per copilot

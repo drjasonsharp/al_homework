@@ -23,9 +23,9 @@
 
 __format_str:	db	"%s",0
 __format_int:	db	"%d",0
-__format_int64: db  "%11d",0
+__format_int64: db  "%11d",0		;added for put_i64 and get_i64
 __format_hex:	db	"%#010x",0
-__format_f:	db	"%f",0
+__format_f:		db	"%f",0
 __format_dbl:	db	"%lf",0
 __open_read:	db	"r",0
 __open_write:	db	"w",0
@@ -33,8 +33,9 @@ __open_write:	db	"w",0
 
 		section .bss
 
-__temp_mem:	resq	1
-__fpu_mem:	resb	112
+__temp_mem:		resq	1
+__temp_mem64:	resq	1		;added for get_i64
+__fpu_mem:		resb	112
 
 
 		section	.text
@@ -1142,5 +1143,47 @@ extern fgets,fgetc,fopen,fclose,fscanf,fputc,fprintf
     pop     rdx
     pop     rcx
     pop     rax
+%endmacro
+
+;; get_i64 num
+;;--------------
+;; Reads a signed 64-bit integer from stdin into num
+;;
+;; num can be: reg64, mem64
+;; get_i64 also returns the read value in RAX
+;;------------------------------------------------
+%macro  get_i64 1
+    push    rbx             ; save context
+    push    rcx
+    push    rdx
+    push    rdi
+    push    rsi
+    push    r8
+    push    r9
+    push    r10
+    push    r11
+    sub     rsp,8
+
+    mov     rdi,__format_int64
+    mov     rsi,__temp_mem64
+    xor     rax,rax
+    call    scanf
+
+    add     rsp,8
+    pop     r11             ; restore context
+    pop     r10
+    pop     r9
+    pop     r8
+    pop     rsi
+    pop     rdi
+    pop     rdx
+    pop     rcx
+    pop     rbx
+
+    ; Must occur after restoring context because
+    ; %1 could be an indirect memory operand such as [rcx]
+
+    mov     rax,[__temp_mem64]
+    mov     %1,rax
 %endmacro
 
