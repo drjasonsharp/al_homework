@@ -29,9 +29,11 @@ main:
 		; then under the System V AMD64 ABI the stack must be
 		; 16-byte aligned before every C library call.
 
-        push rbp
-        mov rbp, rsp
-        sub rsp, 16          
+        ;push rbp
+        ;mov rbp, rsp
+        ;sub rsp, 16          
+
+        align_stack
 
 		; call put_str function to display prompt
 		put_str	prompt1
@@ -69,8 +71,8 @@ main:
 		dump_regs
 
 		;needed for 16-bit alignment
-		add rsp, 16
-        pop rbp
+		;add rsp, 16
+        ;pop rbp
 
         ; exit program
 		mov     eax, 60                 ; system call 60 is exit

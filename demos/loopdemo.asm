@@ -1,5 +1,5 @@
 ;; 
-;; ifdemo.asm
+;; loopdemo.asm
 ;;
 ;; Here we demonstrate looping ... which is basically the same thing as 
 ;; if statements.
@@ -16,7 +16,7 @@
 		section .data
 
 endl:		db	10,0
-z:		dd	10
+z:			dd	10
 hello:		db	"Hello",10,0
 method:		db	"Method A (display message n times):",10,0
 
@@ -84,14 +84,14 @@ done2:		mov	[x],r8d
 		mov	byte [rdi+7],65
 		put_str	rdi		; print "Method A"
 
-		xor	rax,rax
-whileA:		cmp	rax,[n]
-		jl	printitA
-		jmp	doneA
+			xor	rax,rax
+whileA:		cmp	eax,[n]	; compare eax (0) to n (5)
+			jl	printitA ; while eax (0) less than n (5)
+ 			jmp	doneA
 
 printitA:	put_str	hello
-		inc	rax
-		jmp	whileA		
+			inc	eax		; increment eax
+			jmp	whileA		
 	
 doneA:
 
@@ -102,11 +102,11 @@ doneA:
 		put_str	rdi		; print "Method B"
 
 		xor	rax,rax
-whileB:		cmp	rax,[n]
-		jge	doneB
+whileB:	cmp	eax,[n]
+		jge	doneB		; while n (5) greater than or equal to eax (0) stay in the loop
 
 printitB:	put_str	hello
-		inc	rax
+		inc	eax			; increment eax by 1
 		jmp	whileB		
 	
 doneB:
@@ -117,12 +117,12 @@ doneB:
 		mov	byte [rdi+7],67
 		put_str	rdi		; print "Method C"
 
-		mov	rax,[n]
-whileC:		cmp	rax,0
-		jle	doneC
+		mov	eax,[n]		; assign n (5) to eax
+whileC:	cmp	eax,0		; compare 5 and 0; using 0
+		jle	doneC		; while 0 is less than or equal to eax stay in loop
 
 printitC:	put_str	hello
-		dec	rax
+		dec	rax			; decrement eax - couuntdown
 		jmp	whileC		
 	
 doneC:
@@ -133,19 +133,24 @@ doneC:
 		mov	byte [rdi+7],68
 		put_str	rdi		; print "Method D"
 
-		mov	rax,[n]
-whileD:		jle	doneD		; NOTE: cmp has been removed!!
+		mov	eax,[n]		; assign n (5) to rax
+whileD:	jle	doneD		; NOTE: cmp has been removed!! remember like subtraction
+						; decrementing eax sets the flags the same way as cmp
 
 printitD:	put_str	hello
-		dec	rax
+		dec	eax		; decrement rax - count down
 		jmp	whileD		
 	
 doneD:
 
 
 		; exit(0)
-theend:		mov     eax, 60
+theend:	mov     eax, 60
 		xor     rdi, rdi
 		syscall
 
+; section needed to remove warning:
+;/usr/bin/ld: warning: skeleton.o: missing .note.GNU-stack section implies executable stack
+;/usr/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
 
+section .note.GNU-stack noalloc noexec nowrite progbits

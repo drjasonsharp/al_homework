@@ -1,0 +1,4 @@
+#!/bin/bash
+nasm -f elf64 $1.asm
+#gcc $1.o -o $1
+gcc -no-pie $1.o $2 $3 $4 -lm

@@ -34,9 +34,9 @@ x:		dd	5
 y:		dd	-5	
 z:		dd	0
 
-xd:		dq	5.5
-yd:		dq	5.49999999
-zd:		dq	0.0
+xd:		dd	5.5
+yd:		dd	5.49999999
+zd:		dd	0.0
 
 
 		section .bss
@@ -44,7 +44,7 @@ zd:		dq	0.0
 mychar:		resb	1
 mystr:		resb	80
 myint:		resd	1
-mydbl:		resq	1
+mydbl:		resd	1
 
 
 		section .text
@@ -60,13 +60,13 @@ main:
 		put_i	[z]
 		put_str	ENDL
 		put_str	xdlab
-		put_i	[xd]
+		put_x	[xd]
 		put_str	ENDL
 		put_str	ydlab
-		put_i	[yd]
+		put_x	[yd]
 		put_str	ENDL
 		put_str	zdlab
-		put_i	[zd]
+		put_x	[zd]
 		put_str	ENDL
 		put_str	ENDL
 
