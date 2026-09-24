@@ -18,8 +18,10 @@ a:		resd	50
 
 		section .text
 main:
+
 		mov	edi, 1
 		mov	rcx, a
+
 loop:		cmp	edi, 50
 		jg	exitloop
 		mov	[rcx], edi
@@ -43,9 +45,3 @@ printloop:
 theend:		mov     eax, 60
 		xor     rdi, rdi
 		syscall
-
-; section needed to remove warning:
-;/usr/bin/ld: warning: skeleton.o: missing .note.GNU-stack section implies executable stack
-;/usr/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
-
-section .note.GNU-stack noalloc noexec nowrite progbits
