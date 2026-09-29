@@ -12,6 +12,11 @@
 		section .data
 myarray:	dd	0x11,0x22,0x33,0x44,0x55,0x66,0x77,0x88,0x99,0xAA
 endl		db	10,0
+										; create label for text file
+										; create label for file not found
+		section .bss
+										; reserve 1 quadword for file pointer (handle)
+										; create an array big enough to hold 100 doublewords
 
 		section .text
 		global 		main
@@ -23,13 +28,44 @@ main:
 		put_str	endl
 
 		; write the necessary statements, without using a loop, to display all elements of myarray
-
 	
+
 
 
 
 		; now display myarray using a loop
 
+
+
+
+
+		; open and close the text file
+
+
+
+
+		; open the text file and display value of first number and then close the text file
+
+
+
+
+
+		; add a loop so that you read 10 numbers from the file and display them as they are read.
+
+
+
+
+
+		; modify your loop so that values you read from the file are stored into the new array.
+
+
+
+
+
+		; after the file is closed, write a separate loop that will traverse the array and
+		; display the numbers.
+
+		
 
 
 

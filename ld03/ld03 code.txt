@@ -1,0 +1,170 @@
+;; write the necessary statements, without using a loop, to display all elements of myarray
+
+mov ecx, myarray		
+put_i [ecx]
+put_str	endl
+
+add ecx, 4
+put_i [ecx]
+put_str	endl
+
+; continue for the remaining elements
+
+------------
+
+; now display myarray using a loop
+
+mov	ecx, myarray
+mov	edi, 1
+
+printloop:
+	cmp	edi, 10
+	jg	alldone
+	put_i	[ecx]
+	put_str	endl
+	add	ecx, 4
+	inc	edi
+	jmp	printloop
+
+------------------------
+
+	section .data
+numfile:	db	"numbers.txt",0		; create label for text file
+
+	section .bss
+fp:		resq	1		; reserve 1 quadword for file pointer (handle)
+
+
+; open and close the text file
+
+fopenr	[fp],numfile	; open numbers.txt
+cmp	rax, 0
+je	alldone
+fclosem	[fp]			; close numbers.txt
+
+-----------------------
+
+; open the text file and display value of first number and then close the text file
+
+fopenr	[fp],numfile	; open numbers.txt
+cmp	rax, 0
+je	alldone
+fget_i	[fp],r8d		; read int from numbers.txt
+put_i	r8d				; print to screen
+put_str	endl
+fclosem	[fp]			; close numbers.txt
+
+-----------------------
+
+filenf:		db	"File not found!",10,0
+
+; add a loop so that you read 10 numbers from the file and display them as they are read.
+
+fopenr	[fp],numfile
+cmp	rax, 0
+je	filenotfound
+
+while1:
+	fget_i	[fp],ebx	; while not eof
+	cmp	eax,-1
+	je	eof
+	put_i ebx
+	put_str endl	
+	add ebx,4
+	jmp	while1
+eof:
+	fclosem	[fp]
+	jmp	alldone
+
+----------------------------------------------------
+
+
+
+while1:
+		fget_i	[fp],ebx	; while not eof
+		cmp	eax,-1
+		je	eof
+		put_i ebx
+		put_str endl	
+		add ebx,4
+		jmp	while1
+eof:
+		fclosem	[fp]
+		jmp	alldone
+
+filenotfound:
+	put_str	filenf
+
+--------------------------------
+
+; create an array in memory big enough to hold up to 100 integers.
+
+	section .bss
+newarray:	resd	100	; create an array big enough to hold 100 doublewords
+
+; modify your loop so that values you read from the file are stored into the new array.
+
+mov edi,1			; move 1 into edi to use as counter
+mov ecx,newarray		; move address of newarray into ecx
+
+fopenr	[fp],numfile
+cmp	rax, 0
+je	filenotfound
+
+while1:
+	fget_i	[fp],ebx	; while not eof
+	cmp	eax,-1
+	je	eof
+	put_i ebx
+	put_str endl	
+	mov [ecx],ebx
+	put_i [ecx]
+	put_str endl
+	add ebx,4
+	add ecx,4
+	jmp	while1
+eof:
+	fclosem	[fp]
+	mov ecx,newarray
+	put_i [ecx]
+	put_str endl
+	jmp	alldone
+
+--------------------------------------------
+
+; after the file is closed, write a separate loop that will traverse the array and display the numbers.
+
+mov edi,1			; move 1 into edi to use as counter
+mov ecx,newarray		; move address of newarray into ecx
+
+fopenr	[fp],numfile
+cmp	rax, 0
+je	filenotfound
+
+while1:
+	fget_i	[fp],ebx	; while not eof
+	cmp	eax,-1
+	je	eof
+	put_i ebx
+	put_str endl	
+	mov [ecx],ebx
+	add ebx,4
+	add ecx,4
+	jmp	while1
+eof:
+	fclosem	[fp]
+	mov ecx,newarray
+	put_str endl
+	jmp printloop
+
+	; after the file is closed, write a separate loop that will traverse the array and
+	; display the numbers.
+
+printloop:
+	cmp	edi, 10
+	jg	alldone
+	put_i	[ecx]
+	put_str	endl
+	add	ecx, 4
+	inc	edi
+	jmp	printloop
