@@ -65,22 +65,6 @@ cmp	rax, 0
 je	filenotfound
 
 while1:
-	fget_i	[fp],ebx	; while not eof
-	cmp	eax,-1
-	je	eof
-	put_i ebx
-	put_str endl	
-	add ebx,4
-	jmp	while1
-eof:
-	fclosem	[fp]
-	jmp	alldone
-
-----------------------------------------------------
-
-
-
-while1:
 		fget_i	[fp],ebx	; while not eof
 		cmp	eax,-1
 		je	eof
