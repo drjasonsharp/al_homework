@@ -201,6 +201,7 @@ mov [r9], ecx		; r9 = ecx or r9 = 1
 
 put_str endl
 put_str	endl
+
 put_i64 r8			; display r8
 put_str endl
 put_i64 [r8]		; display value in r8 = 2
