@@ -48,17 +48,23 @@ main:
 		mov			r8, x			; move address of x into r8
 		add			r8, 4			; add 4 bytes to r8
 		get_str		r8, 32			; add 32 bytes to r8 and get the string, store length in eax
-		put_i		eax
-		put_str		endl
+;		put_i		eax
+;		put_str		endl
 		mov			[x+36], eax		; move length of string stored in eax to value of x + 36
 		get_i		[x]				; prompt for value of age
 		put_str		endl
+		put_i		x+4
+		put_str		endl
 		put_str		r8				; display whatever is stored in r8
-		;put_str	endl
+		put_str		endl
+		put_i		x+36
+		put_str 	endl
 		put_i		[x+36]			; display value stored in x + 36
 		put_str		endl
+		put_i		x
+		put_str		endl
 		put_i		[x]				; display value stored in x
-		;put_str	endl
+		put_str	endl
 		put_ch		10				; put newline at end of chunk of data or "record
 
 		; exit
@@ -69,7 +75,6 @@ main:
 		mov	ebx,0		; return 0
 		mov	eax,1		; on
 		int	80h			; exit
-
 
 ; section needed to remove warning:
 ;/usr/bin/ld: warning: skeleton.o: missing .note.GNU-stack section implies executable stack
