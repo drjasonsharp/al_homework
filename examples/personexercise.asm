@@ -25,6 +25,10 @@ main:
 ;		get_str		x,32			;
 ;		mov			[x+32], eax		; move eax register into value of variable x + 32
 									; moves to the end of the "string" and puts length
+;		put_i		eax
+;		put_str 	endl
+;		put_i		[x+32]
+;		put_str		endl
 ;		get_i		[x+36]			; get age
 ;		put_i		x				; beginning address
 ;		put_str		endl
@@ -45,17 +49,30 @@ main:
 
 		;; record exercise #2
 
+
 		mov			r8, x			; move address of x into r8
 		add			r8, 4			; add 4 bytes to r8
 		get_str		r8, 32			; add 32 bytes to r8 and get the string, store length in eax
-;		put_i		eax
-;		put_str		endl
-		mov			[x+36], eax		; move length of string stored in eax to value of x + 36
+		mov [x+36], eax				; move length of string stored in eax to value of x + 36
+		
+;		mov			rbx, x			; move address of x into r8
+;		add			rbx, 4			; add 4 bytes to r8
+;		get_str		rbx, 32			; add 32 bytes to r8 and get the string, store length in eax
+;		mov			[x+36], eax		; move length of string stored in eax to value of x + 36
+
+;		get_str		x+4, 32			; add 32 bytes to r8 and get the string, store length in eax
+;		mov 		[x+36], eax		; move length of string stored in eax to value of x + 36
+
+		put_i		[x+36]
+		put_str		endl
+
 		get_i		[x]				; prompt for value of age
 		put_str		endl
 		put_i		x+4
 		put_str		endl
-		put_str		r8				; display whatever is stored in r8
+		put_str	r8				; display whatever is stored in r8
+;		put_str	rbx
+;		put_str		x+4
 		put_str		endl
 		put_i		x+36
 		put_str 	endl
@@ -65,7 +82,7 @@ main:
 		put_str		endl
 		put_i		[x]				; display value stored in x
 		put_str	endl
-		put_ch		10				; put newline at end of chunk of data or "record
+;		put_ch		10				; put newline at end of chunk of data or "record
 
 		; exit
 		;mov     eax, 60

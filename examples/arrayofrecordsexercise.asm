@@ -59,17 +59,22 @@ main:
 	mov [rbx+32],dword 6
 	mov [rbx+36],dword 51
 	;put_ch 10
+	
+;	put_i	[i]
+;	put_str endl
+
+;	mov [i],dword 1
 
 	; display people[i]
 
-	mov	ebx, [i]; put value of i (the index) into ebx register lower 32-bits
-	imul 	ebx, 40	; multiple ebx by 40, skipping over 40 bytes for each record
+	mov	ebx, [i]	; put value of i (the index) into ebx register lower 32-bits
+	imul ebx, 40	; multiple ebx by 40, skipping over 40 bytes for each record
 	add	rbx, people	; add address of people to rbx starting at the beginning of the array
 					; to my offset that i have calculated that moves down to people[i]
 					; at this point, rbx is the address of the record at position i
 					; once we have the address of the record in the array it works just
 					; like a record
-	put_str	rbx	; display whatever is stored at rbx, the name as a string
+	put_str	rbx		; display whatever is stored at rbx, the name as a string
 	put_str endl
 	put_i	[rbx+32]; display the value stored at rbx+32, the offset for length
 	put_str endl
@@ -77,10 +82,10 @@ main:
 	put_str endl
 
 	; display all people (loop up to n, where n represents the number of useful entries in the array)
-	;xor	rbx, rbx	; clear rbx register using bitwise or results in 0
-	;mov	rbx, people	; put the address of people into the rbx register
-	;mov	edi, 0		; put 0 into edi register
-	;mov [n], dword 3
+;	xor	rbx, rbx	; clear rbx register using bitwise or results in 0
+;	mov	rbx, people	; put the address of people into the rbx register
+;	mov	edi, 0		; put 0 into edi register for counter
+;	mov [n], dword 3; there are 3 useful records
 ;loop:
 ;	cmp	edi,[n]		; compare edi to value of n, which is 2
 ;	jge	done		; if edi is greater than or equal to 0 jump to done
