@@ -11,11 +11,11 @@
 
 		section .data
 endl	db	10,0
-name	db	"Jason",0
+;name	db	"Jason",0
 										
 		section .bss
 people:		resb	40*10000		; reserve 10000 (0-9999) records of 40 bytes each
-									; could be 40000 bytes or 10000 doublewords (10000*4)
+									; could be 400000 bytes or 10000 doublewords (10000*4)
 i:			resd	1				; reserve 1 doubleword (4 bytes) for an index
 n:			resd	1				; reserve 1 doubleword (4 bytes) for number of useful entries
 
@@ -60,49 +60,49 @@ main:
 	mov [rbx+36],dword 51
 	;put_ch 10
 	
-;	put_i	[i]
-;	put_str endl
+	put_i	[i]
+	put_str endl
 
-;	mov [i],dword 1
+;	mov [i],dword 2
 
 	; display people[i]
 
-	mov	ebx, [i]	; put value of i (the index) into ebx register lower 32-bits
-	imul ebx, 40	; multiple ebx by 40, skipping over 40 bytes for each record
-	add	rbx, people	; add address of people to rbx starting at the beginning of the array
+;	mov	ebx, [i]	; put value of i (the index) into ebx register lower 32-bits
+;	imul ebx, 40	; multiple ebx by 40, skipping over 40 bytes for each record
+;	add	rbx, people	; add address of people to rbx starting at the beginning of the array
 					; to my offset that i have calculated that moves down to people[i]
 					; at this point, rbx is the address of the record at position i
 					; once we have the address of the record in the array it works just
 					; like a record
-	put_str	rbx		; display whatever is stored at rbx, the name as a string
-	put_str endl
-	put_i	[rbx+32]; display the value stored at rbx+32, the offset for length
-	put_str endl
-	put_i	[rbx+36]; display the value stored at rbx+36, the offset for age
-	put_str endl
+;	put_str	rbx		; display whatever is stored at rbx, the name as a string
+;	put_str endl
+;	put_i	[rbx+32]; display the value stored at rbx+32, the offset for length
+;	put_str endl
+;	put_i	[rbx+36]; display the value stored at rbx+36, the offset for age
+;	put_str endl
 
 	; display all people (loop up to n, where n represents the number of useful entries in the array)
-;	xor	rbx, rbx	; clear rbx register using bitwise or results in 0
-;	mov	rbx, people	; put the address of people into the rbx register
-;	mov	edi, 0		; put 0 into edi register for counter
-;	mov [n], dword 3; there are 3 useful records
-;loop:
-;	cmp	edi,[n]		; compare edi to value of n, which is 2
-;	jge	done		; if edi is greater than or equal to 0 jump to done
-;	put_str	rbx		; print name, contained at the address of rbx
-;	put_str endl
-;	put_i	[rbx+32]; print len, contained in the value of rbx+32 (offset for length)
-;	put_str endl
-;	put_i	[rbx+36]; print age, contained in the value of rbx+36 (offset for age)
-;	put_str endl
-;	put_str endl
-;	add	rbx, 40		; skip to next record, add 40 bytes to the address at rbx
-;	inc	edi			; increment edi by 1
-;	jmp	loop		; unconditional jump to loop
-;done:
-	;mov     eax, 60
-	;xor     rdi, rdi
-	;syscall
+	xor	rbx, rbx	; clear rbx register using bitwise or results in 0
+	mov	rbx, people	; put the address of people into the rbx register
+	mov	edi, 0		; put 0 into edi register for counter
+	mov [n], dword 3; there are 3 useful records
+loop:
+	cmp	edi,[n]		; compare edi to value of n, which is 2
+	jge	done		; if edi is greater than or equal to 0 jump to done
+	put_str	rbx		; print name, contained at the address of rbx
+	put_str endl
+	put_i	[rbx+32]; print len, contained in the value of rbx+32 (offset for length)
+	put_str endl
+	put_i	[rbx+36]; print age, contained in the value of rbx+36 (offset for age)
+	put_str endl
+	put_str endl
+	add	rbx, 40		; skip to next record, add 40 bytes to the address at rbx
+	inc	edi			; increment edi by 1
+	jmp	loop		; unconditional jump to loop
+done:
+	mov     eax, 60
+	xor     rdi, rdi
+	syscall
 
 	mov	ebx,0		; return 0
 	mov	eax,1		; on

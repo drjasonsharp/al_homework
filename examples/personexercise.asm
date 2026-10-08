@@ -50,18 +50,18 @@ main:
 		;; record exercise #2
 
 
-		mov			r8, x			; move address of x into r8
-		add			r8, 4			; add 4 bytes to r8
-		get_str		r8, 32			; add 32 bytes to r8 and get the string, store length in eax
-		mov [x+36], eax				; move length of string stored in eax to value of x + 36
+		;mov			r8, x			; move address of x into r8
+		;add			r8, 4			; add 4 bytes to r8
+		;get_str		r8, 32			; add 32 bytes to r8 and get the string, store length in eax
+		;mov [x+36], eax				; move length of string stored in eax to value of x + 36
 		
-;		mov			rbx, x			; move address of x into r8
-;		add			rbx, 4			; add 4 bytes to r8
-;		get_str		rbx, 32			; add 32 bytes to r8 and get the string, store length in eax
-;		mov			[x+36], eax		; move length of string stored in eax to value of x + 36
+		;mov			rbx, x			; move address of x into r8
+		;add			rbx, 4			; add 4 bytes to r8
+		;get_str		rbx, 32			; add 32 bytes to r8 and get the string, store length in eax
+		;mov			[x+36], eax		; move length of string stored in eax to value of x + 36
 
-;		get_str		x+4, 32			; add 32 bytes to r8 and get the string, store length in eax
-;		mov 		[x+36], eax		; move length of string stored in eax to value of x + 36
+		get_str		x+4, 32			; add 32 bytes to r8 and get the string, store length in eax
+		mov 		[x+36], eax		; move length of string stored in eax to value of x + 36
 
 		put_i		[x+36]
 		put_str		endl
@@ -70,9 +70,9 @@ main:
 		put_str		endl
 		put_i		x+4
 		put_str		endl
-		put_str	r8				; display whatever is stored in r8
+;		put_str	r8				; display whatever is stored in r8
 ;		put_str	rbx
-;		put_str		x+4
+		put_str		x+4
 		put_str		endl
 		put_i		x+36
 		put_str 	endl
