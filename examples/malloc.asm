@@ -1,7 +1,7 @@
 ;; 
-;; stringcompare.asm
+;; malloc.asm
 ;;
-;; Demonstrates a string compare macro.
+;; Demonstrates dynamically allocating memory.
 ;;
 ;; by Terry Sergeant
 ;; Fall 2014
@@ -20,6 +20,7 @@ endl		db	10,0
 		section .text
 
 main:
+
 		dump_regs
 		mov	rax,9		; syscall mmap
 		xor	rdi,rdi		; addr = NULL
@@ -41,3 +42,9 @@ main:
 		mov     eax, 60                 ; exit 0
 		xor     rdi, rdi
 		syscall
+
+; section needed to remove warning:
+;/usr/bin/ld: warning: skeleton.o: missing .note.GNU-stack section implies executable stack
+;/usr/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+
+section .note.GNU-stack noalloc noexec nowrite progbits

@@ -1,7 +1,7 @@
 ;; 
-;; stringcompare.asm
+;; malloc.asm
 ;;
-;; Demonstrates a string compare macro.
+;; Demonstrates dynamically allocating memory.
 ;;
 ;; by Terry Sergeant
 ;; Fall 2014
