@@ -33,11 +33,11 @@ main:
 		put_str	endl
 		dump_regs
 
-		;mov	rdi,rax				; assign rax to rdi
-		;mov	dword [rdi],100;	; put 100 into the value of rdi
-		;put_i	[rdi]				; display value of rdi
-		;put_str	endl
-		;dump_regs
+		mov	rdi,rax				; assign rax to rdi
+		mov	dword [rdi],100;	; put 100 into the value of rdi
+		put_i	[rdi]				; display value of rdi
+		put_str	endl
+		dump_regs
 
 		mov     eax, 60                 ; exit 0
 		xor     rdi, rdi
