@@ -82,7 +82,7 @@ readfile:
 		
 		fget_i [f],[r12+LENGTH]	; read length	
 		fget_i [f],[r12+AGE]	; read age
-		fget_ch [f], al			; discard newline
+		;fget_ch [f], al ; don't actually need this			; discard newline
 
 endloop1:
 		inc ebx			; increment ebx by 1
