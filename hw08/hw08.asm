@@ -1,11 +1,11 @@
 ;
-; labday.asm
+; hw08.asm
 ;
 ; Playing around with the stack.
 ;
 
-%include "../lib/iomacros.asm"
-%include "../lib/dumpregs.asm"
+%include "iomacros.asm"
+%include "dumpregs.asm"
 
 		global main
 
@@ -34,3 +34,9 @@ main:
 		mov     eax, 60                 ; system call 60 is exit
 		xor     rdi, rdi                ; exit code 0
 		syscall
+
+; section needed to remove warning:
+;/usr/bin/ld: warning: skeleton.o: missing .note.GNU-stack section implies executable stack
+;/usr/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+
+section .note.GNU-stack noalloc noexec nowrite progbits
