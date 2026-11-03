@@ -18,21 +18,21 @@ endl		db	0AH,0
 		section .text
 		global 		main
 main:
-		;dump_regs
-		;put_str	endl
+		dump_regs
+		put_str	endl
 
 		call	hello
 
-		;dump_regs
-		;put_str endl
+		dump_regs
+		put_str endl
 
 		call	hello		
 
 		put_str	endmsg
-		;put_str endl
+		put_str endl
 
-		;dump_regs
-		;put_str	endl
+		dump_regs
+		put_str	endl
 
 theend:	
 		mov     rax, 60
@@ -45,11 +45,11 @@ begmsg:		db	"Hello World!",10,0
 
 		section .text
 hello:
-		;dump_regs
-		;put_str	endl
+		dump_regs
+		put_str	endl
 
 		put_str	begmsg
-		;put_str endl
+		put_str endl
 
 		ret
 

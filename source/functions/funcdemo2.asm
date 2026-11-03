@@ -13,11 +13,11 @@
 ;; by Terry Sergeant
 ;; For AL
 ;;
-%include "../iomacros.asm"
-%include "../dumpregs.asm"
+%include "iomacros.asm"
+%include "dumpregs.asm"
 
 		section .data
-enternum:		db	"Enter number: ",0
+enternum:	db	"Enter number: ",0
 sumis:		db	"Sum is : ",0
 endl		db	0AH,0
 
@@ -25,23 +25,26 @@ endl		db	0AH,0
 		section .text
 		global 		main
 main:
+		align_stack
+
 		xor	rdi,rdi
 		xor	rsi,rsi
 		put_str	enternum
 		get_i	edi
+		put_str endl
 		put_str	enternum
 		get_i	esi
 
 		; rax= sum(rdi,rsi)
-		push	rsi	; parameters go on stack
-		push	rdi
-		call	sum
-		add	rsp,16	; restore stack pointer
+		;push	rsi	; parameters go on stack
+		;push	rdi
+		;call	sum
+		;add	rsp,16	; restore stack pointer
 
 		; print "sum is: ",EAX
-		put_str	sumis
-		put_i	eax
-		put_str	endl
+		;put_str	sumis
+		;put_i	eax
+		;put_str	endl
 
 
 		; Clear RAX so we know this actually works.
@@ -49,14 +52,14 @@ main:
 		; in anticipation of those values being passed as parameters
 		; so all we have to do is call the function.
 		xor	rax,rax
-		call	sum2
+		call sum2
 
 		; print "sum is: ",EAX
 		put_str	sumis
 		put_i	eax
 		put_str	endl
 
-theend:		mov     eax, 60
+theend:	mov     eax, 60
 		xor     rdi, rdi
 		syscall
 
@@ -68,7 +71,7 @@ theend:		mov     eax, 60
 		; parameters so the offsets will be the same regardless
 		; of what we do with the stack inside the function
 sum:
-		push	rbp
+		push rbp
 		mov	rbp,rsp
 
 		; here we push/save any registers that we will be using
@@ -92,6 +95,16 @@ sum:
 		; go in XMM0, XMM1, etc. If more parameters are needed
 		; they are placed on the stack.
 
-sum2:		mov	rax,rdi
-		add	rax,rsi
-		ret
+		; rax = 0
+		; rdi = user input, say 4
+		; rsi = user input, say 7
+
+sum2:	mov	rax,rdi ; rax = rdi or rax = 4
+		add	rax,rsi ; rax = rax + rsi or 4 = 4 + 7, rax = 11
+		ret			; return value of rax
+
+; section needed to remove warning:
+;/usr/bin/ld: warning: skeleton.o: missing .note.GNU-stack section implies executable stack
+;/usr/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+
+section .note.GNU-stack noalloc noexec nowrite progbits
