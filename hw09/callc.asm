@@ -16,11 +16,11 @@
 %include "dumpregs.asm"
 
 		extern displayNums	; tells nasm that displayNums is defined externally
-
+		extern findSuccPos  ; 
 		section .data
 ints:	dd	68,-9,23,45,67,78,32,31,525,123 ; an array of 10 ints
 n:		dd	10	; number of ints in the array
-
+endl:	db	10,0	
 
 section .text
 		global 		main
@@ -44,11 +44,21 @@ main:
 	; call dump_regs
 	; INSERT CODE HERE
 
+		; move the parameters to pass to findSuccPos
+		; INSERT CODE HERE
+
+		; call findSuccPos
+		; INSERT CODE HERE
+		
+		; display eax
+		; INSERT CODE HERE
+		
+		put_str endl
 
 alldone:
 	 	mov	ebx,0		; return 0
 		mov	eax,1		; on
-		int	80h		; exit
+		int	80h			; exit
 
 ; section needed to remove warning:
 ;/usr/bin/ld: warning: skeleton.o: missing .note.GNU-stack section implies executable stack
