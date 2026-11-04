@@ -16,7 +16,7 @@
 %include "dumpregs.asm"
 
 		extern displayNums	; tells nasm that displayNums is defined externally
-		extern findSuccPos  ; 
+		extern findSuccPos  ; tells nasm that findSuccPos is defined externally
 		section .data
 ints:	dd	68,-9,23,45,67,78,32,31,525,123 ; an array of 10 ints
 n:		dd	10	; number of ints in the array
